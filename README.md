@@ -1,8 +1,8 @@
 # Lilliputian Assembly Language (LILLI)
-Lilliputian is an interpreted psuedo-assembly language that is written in C++. While it is not a true assembly language, it mimics the behavior of actual assemblies. The name "Lilliputian" comes from the 1726 novel Gulliver's Travels by Jonathan Swift. The word lilliputian has become an adjective meaning "very small in size", which is fitting to this assembly language as it was not meant to have the full capabillities of an x86 or NASM assembler.
+Lilliputian is an interpreted psuedo-assembly language that is written in C++. While it is not a true assembly language, it mimics the behavior of actual assemblies. The name "Lilliputian" comes from the 1726 novel Gulliver's Travels by Jonathan Swift. The word lilliputian has become an adjective meaning "very small in size", which is fitting to this assembly language as it was not meant to have the full capabillities of a NASM assembler/CISC ISA.
 
 <h2>Downloads</h2>
-Lilliputian can be ran as a standalone executable. Your browser will probably warn you that it is a virus but don't fret, the source code is for you to judge. You can also view code snippets inside the "Snippets" folder for examples of Lilliputian assembly code. If the .exe file prints nothing, you might be missing some C++ redistributable frameworks. Download the latest ones here: https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads.
+Lilliputian can be ran as a standalone executable. Your browser will probably warn you that it is a virus but don't fret, the source code is for you to judge. You can also view code snippets inside the "Snippets" folder for examples of Lilliputian assembly code. If the .exe file prints nothing, you might be missing some C++ redistributable frameworks. Download the latest ones here: https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist.
 
 <h2>Background</h2>
 Lilliputian programs take on the file extension of (.lp). They can be executed through a CLI by running this command:
@@ -22,7 +22,7 @@ MOV - Opcode: The command that modifies the arguments.
 x and STDOUT - Operands: The parameters of the opcodes.
 "->" - Operator: Helps the opcode bind two operands together.
 ```
-The SETault variable type is an integer. Strings do not exist in Lilliputian and must be converted to an ASCII value through STR. STRs are variable types that specialize in representing strings. Using the STR opcode implies that the operand on the right side have already-defined integer variables. There are two reserved variables, STDIN and STDOUT (it must be in ALL-CAPS), that represents the input and output streams of the program, respectively. It is used to print long strings (MOV x -> STDOUT) or take user input (MOV STDIN -> x). Using the "MOV" function for a string will automatically create a newline for each iteration when "MOV" is called.
+The default variable type is an integer. Strings do not exist in Lilliputian and must be converted to an ASCII value through STR. STRs are variable types that specialize in representing strings. Using the STR opcode implies that the operand on the right side have already-defined integer variables. There are two reserved variables, STDIN and STDOUT (it must be in ALL-CAPS), that represents the input and output streams of the program, respectively. It is used to print long strings (MOV x -> STDOUT) or take user input (MOV STDIN -> x). Using the "MOV" function for a string will automatically create a newline for each iteration when "MOV" is called.
 
 <h2>Control Flow</h2>
 Lilliputian supports IF statements and their behavior is very simple. The number proceeding immediately after the CHECK opcode displays how many lines after the original statement the IF statement should consider for. If the condition is not met, skip past the specified amount of lines MINUS ITSELF AS A LINE. Note the spaces between each segment. When using CHECK statements, both variables have to be a single character, comparing mutiple words (foo<=baz) is not allowed, instead use (f<=b). 
@@ -81,4 +81,4 @@ While not required, some conventions are put in place to simplify workflow. The 
 * All user-defined variables shall be in lowercase.
 * Built-in functions and variables should be in ALL-CAPS.
 * All STR variables should have an lowercase "str_" in front of the variable name (ex. "str_var").
-* Do not put new lines between your code, it may cause unwanted behavior.
+* Do not put blank lines between your code, it may cause unwanted behavior.
